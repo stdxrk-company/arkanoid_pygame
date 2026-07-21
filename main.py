@@ -1,7 +1,7 @@
 import pygame
 import settings as cfg
 from screens.game_screen import run as game_screen
-from game.entities import Paddle, Brick
+from game.entities import Paddle, Brick, Ball
 
 def main():
     pygame.init()
@@ -17,6 +17,7 @@ def main():
         Brick(2, 1, 0),
         Brick(0, 0, -1)
     ]
+    ball = Ball(cfg.WIDTH // 2, cfg.HEIGHT // 2)
 
     while running:
         # Main Loop
@@ -26,9 +27,11 @@ def main():
         keys = pygame.key.get_pressed()
 
         paddle.move(keys)
+        ball.update()
 
         # Draw Section
         paddle.draw(screen)
+        ball.draw(screen)
 
         for brick in bricks:
             brick.draw(screen)

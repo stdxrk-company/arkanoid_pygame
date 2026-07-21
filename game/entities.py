@@ -48,5 +48,30 @@ class Brick:
         )
 
     def draw(self, screen: pygame.Surface) -> None:
+        """ Renders a Brick in a certain row and col. """
         pygame.draw.rect(screen, self.color, self.rect)
         pygame.draw.rect(screen, cfg.DARK_GRAY, self.rect, 2)
+
+class Ball:
+    """ Ball Actor class. """
+
+    def __init__(self, x: int, y: int) -> None:
+        self.radius = cfg.BALL_RADIUS
+        self.rect = pygame.Rect(
+            x - self.radius,
+            y - self.radius,
+            2 * self.radius,
+            2 * self.radius,
+        )
+        self.vx = cfg.BALL_SPEED_X
+        self.vy = cfg.BALL_SPEED_Y
+
+    def update(self) -> None:
+        """ Updates the Ball's position for the each frame. """
+        self.rect.x += self.vx
+        self.rect.y += self.vy
+
+    def draw(self, screen: pygame.surface) -> None:
+        """ Renders the Ball. """
+        colour = cfg.BALL_COLOR
+        pygame.draw.circle(screen, colour, self.rect.center, self.radius)
