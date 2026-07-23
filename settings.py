@@ -37,7 +37,26 @@ MAX_BALL_SPEED_X = 8
 
 # --- Bonuses ---------------------------------------------------------------------
 BONUS_PROBABILITY = 0.3  # Chance that destroyed brick will drop a bonus
-BONUS_TYPES = ["extend", "multiball", "laser", "extra_life"]
+BONUS_TYPES = [
+    "extend",
+    "multiball",
+    "laser",
+    "extra_life",
+    "shrink",
+    "speed_up",
+    "speed_down",
+]
+
+PADDLE_RESIZE_FACTOR = 1.5  # Paddle width multiplier for extend/shrink bonuses
+PADDLE_MIN_WIDTH = 50
+PADDLE_MAX_WIDTH = 240
+
+BALL_SPEED_UP_FACTOR = 1.3  # Ball speed multiplier for the speed_up bonus
+BALL_SPEED_DOWN_FACTOR = 0.7  # Ball speed multiplier for the speed_down bonus
+BALL_MIN_SPEED_Y = 2  # Vertical speed clamp, keeps the game playable
+BALL_MAX_SPEED_Y = 9
+
+START_LIVES = 3
 
 # --- Visual Effects -----------------------------------------------------------
 TRAIL_LENGTH = 6  # Ball's Motion Trail Length
